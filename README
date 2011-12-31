@@ -14,9 +14,9 @@ Set the signIdentifier in config.yml to '[OneBlock]' and you're good to go.
 Usage:
 
 Line0: [br]     # identifier (customizable)
-Line1: 2;4      # vertical distance, length (optional)
+Line1: 2;4      # vertical distance;length (optional)
 Line2: 35:3     # block id when sign is activated:block damage (optional)
-Line3: 35:8     # block id when sign is deactivated:block dama (optional)
+Line3: 35:8     # block id when sign is deactivated:block damage (optional)
 ------------
 
 Config:
