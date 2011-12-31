@@ -4,9 +4,9 @@ package me.estyx.BlockReplacer;
 public class BlockReplacerPresets
 {
 	private final BlockReplacer plugin;
-
-    public BlockReplacerPresets(BlockReplacer instance)
-    {
-        plugin = instance;
-    }
+	
+	public BlockReplacerPresets(BlockReplacer instance)
+	{
+		plugin = instance;
+	}
 }

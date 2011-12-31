@@ -88,23 +88,22 @@ public class BlockReplacer extends JavaPlugin
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();
 	}
-	
-	/* Permissions Methods */
-    private void setupPermissions()
-    {
-        Plugin permissions = this.getServer().getPluginManager().getPlugin("Permissions");
 
-        if (Permissions == null)
-            if (permissions != null)
-                Permissions = ((Permissions)permissions).getHandler();
-    }
-    
-    /* Check permissions */
-    public static boolean hasPermissions(Player player, String node)
-    {
-        if (Permissions != null)
-        	return Permissions.has(player, node);
-        else
-            return player.hasPermission(node);
-    }
+	/* Permissions Methods */
+	private void setupPermissions()
+	{
+		Plugin permissions = this.getServer().getPluginManager().getPlugin("Permissions");
+		if (Permissions == null)
+			if (permissions != null)
+					Permissions = ((Permissions)permissions).getHandler();
+	}
+	
+	/* Check permissions */
+	public static boolean hasPermissions(Player player, String node)
+	{
+		if (Permissions != null)
+			return Permissions.has(player, node);
+		else
+			return player.hasPermission(node);
+	}
 }

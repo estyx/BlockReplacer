@@ -15,30 +15,30 @@ public class BlockReplacerSignHandler
 {
 	private final BlockReplacer plugin;
 	
-    public BlockReplacerSignHandler(BlockReplacer instance)
-    {
-        plugin = instance;
-    }
-    
-    public void powerOnPreset(Block block)
-    {
-    	String preset;
-    	int    length;
+	public BlockReplacerSignHandler(BlockReplacer instance)
+	{
+		plugin = instance;
+	}
+	
+	public void powerOnPreset(Block block)
+	{
+		String preset;
+		int    length;
 		int    position;
-    }
-    
-    public void powerOffPreset(Block block)
-    {
-    	String preset;
-    	int    length;
+	}
+	
+	public void powerOffPreset(Block block)
+	{
+		String preset;
+		int    length;
 		int    position;
-    }
-    
-    public void powerOn(Block block)
-    {
-    	Sign signObject = (Sign) block.getState();
-    	
-    	int length;
+	}
+
+	public void powerOn(Block block)
+	{
+		Sign signObject = (Sign) block.getState();
+		
+		int length;
 		int position;
 		int blockon;
 		int blockon_dmg;
@@ -51,11 +51,11 @@ public class BlockReplacerSignHandler
 				String[] str;
 				str = signObject.getLine(1).split(";");
 				position = Integer.parseInt(str[0]);
-				length   = Integer.parseInt(str[1]);
+				length = Integer.parseInt(str[1]);
 			} else
 			{
 				position = Integer.parseInt(signObject.getLine(1));
-				length   = 1;
+				length = 1;
 			}
 			if(length < 1)
 				length = 1;
@@ -67,16 +67,15 @@ public class BlockReplacerSignHandler
 			{
 				String[] str;
 				str = signObject.getLine(2).split(":");
-				blockon     = Integer.parseInt(str[0]);
+				blockon = Integer.parseInt(str[0]);
 				blockon_dmg = Integer.parseInt(str[1]);
 			} else
 			{
-				blockon     = Integer.parseInt(signObject.getLine(2));
+				blockon = Integer.parseInt(signObject.getLine(2));
 				blockon_dmg = 0;
 			}
 			if(blockon_dmg < 0)
 				blockon_dmg = 0;
-		
 		} catch (NumberFormatException e)
 		{
 			System.err.println("Caught NumberFormatException: " + e.getMessage());
@@ -106,18 +105,17 @@ public class BlockReplacerSignHandler
 				location.setY(location.getY() - 1);
 			}
 		}
-				
 		
 		signObject.setLine(0, ChatColor.GREEN + plugin.signIdentifier);
 		signObject.update(true);
-    	return;
-    }
-    
-    public void powerOff(Block block)
-    {
-    	Sign signObject = (Sign) block.getState();
-    	
-    	int length;
+		return;
+	}
+
+	public void powerOff(Block block)
+	{
+		Sign signObject = (Sign) block.getState();
+		
+		int length;
 		int position;
 		int blockoff;
 		int blockoff_dmg;
@@ -130,11 +128,11 @@ public class BlockReplacerSignHandler
 				String[] str;
 				str = signObject.getLine(1).split(";");
 				position = Integer.parseInt(str[0]);
-				length   = Integer.parseInt(str[1]);
+				length = Integer.parseInt(str[1]);
 			} else
 			{
 				position = Integer.parseInt(signObject.getLine(1));
-				length   = 1;
+				length = 1;
 			}
 			if(length < 1)
 				length = 1;
@@ -146,18 +144,18 @@ public class BlockReplacerSignHandler
 			{
 				String[] str;
 				str = signObject.getLine(3).split(":");
-				blockoff     = Integer.parseInt(str[0]);
+				blockoff = Integer.parseInt(str[0]);
 				blockoff_dmg = Integer.parseInt(str[1]);
 			} else
 			{
-				blockoff     = Integer.parseInt(signObject.getLine(3));
+				blockoff = Integer.parseInt(signObject.getLine(3));
 				blockoff_dmg = 0;
 			}
 			if(blockoff_dmg < 0)
 				blockoff_dmg = 0;
 		} catch (NumberFormatException e)
 		{
-			System.err.println("Caught NumberFormatException: " + e.getMessage());
+		System.err.println("Caught NumberFormatException: " + e.getMessage());
 			return;
 		}
 		
@@ -187,30 +185,30 @@ public class BlockReplacerSignHandler
 		
 		signObject.setLine(0, ChatColor.RED + plugin.signIdentifier);
 		signObject.update(true);
-    	return;
-    }
-    
-    public boolean isSign(Block b)
-    {
-    	if (b.getType() == Material.SIGN || b.getType() == Material.SIGN_POST || b.getType() == Material.WALL_SIGN)
-    		return true;
-    	else
-    		return false;
-    }
-    
-    public ReplacerType getReplaceSignType(Sign signObject)
-    {
-    	if(signObject.getLine(0).equals(ChatColor.GREEN + plugin.signIdentifier))
-    		return ReplacerType.TYPE_REGULAR_ON;
-    	if(signObject.getLine(0).equals(ChatColor.RED + plugin.signIdentifier))
-    		return ReplacerType.TYPE_REGULAR_OFF;
-    	
-    	if(signObject.getLine(0).equals(ChatColor.GREEN + plugin.presetIdentifier))
-    		return ReplacerType.TYPE_PRESET_ON;
-    	if(signObject.getLine(0).equals(ChatColor.RED + plugin.presetIdentifier))
-    		return ReplacerType.TYPE_PRESET_OFF;
-    	
-    	return ReplacerType.TYPE_FAILED;
-    }
+		return;
+	}
+
+	public boolean isSign(Block b)
+	{
+		if (b.getType() == Material.SIGN || b.getType() == Material.SIGN_POST || b.getType() == Material.WALL_SIGN)
+			return true;
+		else
+			return false;
+	}
+	
+	public ReplacerType getReplaceSignType(Sign signObject)
+	{
+		if(signObject.getLine(0).equals(ChatColor.GREEN + plugin.signIdentifier))
+			return ReplacerType.TYPE_REGULAR_ON;
+		if(signObject.getLine(0).equals(ChatColor.RED + plugin.signIdentifier))
+			return ReplacerType.TYPE_REGULAR_OFF;
+		if(signObject.getLine(0).equals(ChatColor.GREEN + plugin.presetIdentifier))
+			return ReplacerType.TYPE_PRESET_ON;
+		if(signObject.getLine(0).equals(ChatColor.RED + plugin.presetIdentifier))
+			return ReplacerType.TYPE_PRESET_OFF;
+		
+		/* Not a valid BlockReplacerSign */
+		return ReplacerType.TYPE_FAILED;
+	}
 }
 
