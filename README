@@ -15,8 +15,8 @@ Usage:
 
 Line0: [br]     # identifier (customizable)
 Line1: 2;4      # vertical distance, length (optional)
-Line2: 49       # block id when sign is activated
-Line3: 89       # block id when sign is deactivated
+Line2: 35:3     # block id when sign is activated:block damage (optional)
+Line3: 35:8     # block id when sign is deactivated:block dama (optional)
 ------------
 
 Config:
