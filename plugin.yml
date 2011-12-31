@@ -1,0 +1,19 @@
+name: BlockReplacer
+main: me.estyx.BlockReplacer.BlockReplacer
+version: 0.1
+author: estyx
+description: Replace blocks with redstone and signs
+
+permissions:
+    blockreplacer.*:
+        default: op
+        description: Gives access to all functions
+        children:
+            blockreplacer.create: true
+            blockreplacer.use: true
+    blockreplacer.create:
+        default: op
+        description: Can create a replacer sign.
+    blockreplacer.use:
+        default: true
+        description: Can use a replacer sign by right-click

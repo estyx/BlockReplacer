@@ -1,0 +1,33 @@
+BlockReplacer - Replace your blocks at will!
+
+
+Features:
+ - Switch between two block id's by using a sign
+ - Signs can be toggled either with redstone power or by right-clicking
+ - Define vertical distance and number of blocks
+ - Supports Permissions/OP (a bit untested yet, but should work)
+
+If you have used OneBlock earlier and dont want to set it all up again? Don't despair.
+Set the signIdentifier in config.yml to '[OneBlock]' and you're good to go.
+------------
+
+Usage:
+
+Line0: [br]     # identifier (customizable)
+Line1: 2;4      # vertical distance, length (optional)
+Line2: 49       # block id when sign is activated
+Line3: 89       # block id when sign is deactivated
+------------
+
+Config:
+
+(str) signIdentifier - Identifier used by plugin in first line of a sign
+(str) presetIdentifier - Same as signIdentifier, but used for preset functions (TODO/NOT IN USE)
+(bol) enablePresets - Whether to enable preset functions or not (TODO/NOT IN USE)
+(bol) enablePlayerClick - Whether a sign activates when a player right-clicks on a BlockReplacer sign or not
+------------
+
+Parts of code based code from SimpleCommandSigns (http://gitorious.org/simplecommandsigns/), tutorials, community forums etc.
+All code is under the GPLv3 license.
+
+Disclaimer: USE AT OWN RISK
